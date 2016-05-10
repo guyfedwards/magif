@@ -1,0 +1,25 @@
+{
+  "name": "magif",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./",
+    "build": "rm -rf magif-x64 && electron-packager . magif --platform=darwin --arch=x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clipboard": "^1.5.10",
+    "menubar": "^4.1.0",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^2.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "electron-packager": "^7.0.1",
+    "electron-prebuilt": "^0.37.8"
+  }
+}

@@ -1,0 +1,81 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Helvetica, Arial, san-serif;
+}
+
+
+.outlet {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.gif-item {
+  position: relative;
+
+  width: 50%;
+  height: 100px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+
+.gif-item:hover:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  content: 'Copy';
+  color: white;
+}
+
+
+.add-gif {
+  display: flex;
+}
+
+
+.add-gif__input,
+.add-gif__button {
+  height: 30px;
+
+  border: 2px solid #eee;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.add-gif__input:active,
+.add-gif__input:focus {
+  border-color: lightgreen;
+}
+
+
+.add-gif__input:active + .add-gif__button,
+.add-gif__input:focus + .add-gif__button {
+  border-color: lightgreen;
+  background-color: lightgreen;
+}
+
+
+.add-gif__input {
+  padding: 5px;
+  margin-bottom: 10px;
+
+  flex: 1;
+}
+
+
+.add-gif__button {
+  background-color: #eee;
+}
