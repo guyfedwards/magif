@@ -17,6 +17,7 @@ ipc.on('update-template', (arg) => {
 
 addButton.addEventListener('click', e => {
   let gifUrl = input.value
+  input.value = ''
   ipc.send('add-gif', gifUrl)
 })
 

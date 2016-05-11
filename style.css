@@ -7,6 +7,8 @@
 
 body {
   font-family: Helvetica, Arial, san-serif;
+
+  background-color: #333;
 }
 
 
@@ -49,22 +51,10 @@ body {
 .add-gif__button {
   height: 30px;
 
-  border: 2px solid #eee;
   cursor: pointer;
   outline: none;
-}
 
-
-.add-gif__input:active,
-.add-gif__input:focus {
-  border-color: lightgreen;
-}
-
-
-.add-gif__input:active + .add-gif__button,
-.add-gif__input:focus + .add-gif__button {
-  border-color: lightgreen;
-  background-color: lightgreen;
+  border: 2px solid lightgreen;
 }
 
 
@@ -73,9 +63,12 @@ body {
   margin-bottom: 10px;
 
   flex: 1;
+
+  color: #fff;
+  background-color: #666;
 }
 
 
 .add-gif__button {
-  background-color: #eee;
+  background-color: lightgreen;
 }
