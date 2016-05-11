@@ -1,6 +1,8 @@
 const fs = require('fs')
-const menubar = require('menubar')
 const ipc = require('ipc')
+const menubar = require('menubar')
+const { setApplicationMenu } = require('menu')
+const menu = require('./src/menu')
 
 const mb = menubar()
 
@@ -10,17 +12,19 @@ mb.on('ready', () => {
   const initialArray = []
   const initialJson = JSON.stringify(initialArray)
 
-  console.log(jsonPath)
   createOrReadJsonFile(jsonPath, initialJson)
+  setApplicationMenu(menu)
 })
 
 mb.on('after-create-window', () => {
-  //mb.window.openDevTools()
-
   renderGifs()
 
   ipc.on('add-gif', (event, arg) => {
     addGif(arg)
+  })
+
+  ipc.on('hide-window', () => {
+    mb.hideWindow()
   })
 })
 

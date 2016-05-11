@@ -1,11 +1,15 @@
-const clipboard = require('clipboard');
+const Clipboard = require('clipboard');
 const ipc = require('ipc');
 
 const addButton = document.querySelector('.js-add')
 const input = document.querySelector('.js-gif-input')
 const outlet = document.querySelector('.js-outlet')
 
-new clipboard('.gif-item')
+const clipboard = new Clipboard('.gif-item')
+
+clipboard.on('success', e => {
+  ipc.send('hide-window')
+})
 
 ipc.on('update-template', (arg) => {
   updateGifs(arg)
