@@ -57,13 +57,14 @@ function getGifs(path) {
   })
 }
 
-function addGif(gifUrl) {
+function addGif(gif) {
   getGifs(jsonPath)
   .then(data => {
     var newGifs = data
 
     newGifs.push({
-      link: gifUrl
+      link: gif.url,
+      tags: gif.tags
     })
     var jsonGifs = JSON.stringify(newGifs)
 

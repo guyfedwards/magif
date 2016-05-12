@@ -16,10 +16,24 @@ ipc.on('update-template', (arg) => {
 })
 
 addButton.addEventListener('click', e => {
-  let gifUrl = input.value
+  let inputString = input.value
+  let gifObj = parseInput(inputString)
+
   input.value = ''
-  ipc.send('add-gif', gifUrl)
+
+  ipc.send('add-gif', gifObj)
 })
+
+function parseInput(string) {
+  let strArr = string.split(' ')
+  let url = strArr[0]
+  let tags = strArr.splice(1)
+
+  return {
+    url: url,
+    tags: tags
+  }
+}
 
 function updateGifs(gifs) {
   outlet.innerHTML = ''
