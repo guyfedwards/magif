@@ -48,7 +48,8 @@ body {
 
 
 .add-gif__input,
-.add-gif__button {
+.add-gif__button,
+.options-button {
   height: 30px;
 
   cursor: pointer;
@@ -71,4 +72,11 @@ body {
 
 .add-gif__button {
   background-color: lightgreen;
+}
+
+
+.options-button {
+  font-size: 20px;
+  line-height: 20px;
+  border: none;
 }

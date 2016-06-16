@@ -2,6 +2,7 @@ const Clipboard = require('clipboard');
 const ipc = require('ipc');
 
 const addButton = document.querySelector('.js-add')
+const quitButton = document.querySelector('.js-quit')
 const input = document.querySelector('.js-gif-input')
 const outlet = document.querySelector('.js-outlet')
 
@@ -15,13 +16,17 @@ ipc.on('update-template', (arg) => {
   updateGifs(arg)
 })
 
-addButton.addEventListener('click', e => {
+addButton.addEventListener('click', () => {
   let inputString = input.value
   let gifObj = parseInput(inputString)
 
   input.value = ''
 
   ipc.send('add-gif', gifObj)
+})
+
+quitButton.addEventListener('click', () => {
+  ipc.send('quit')
 })
 
 function parseInput(string) {

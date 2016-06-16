@@ -26,6 +26,10 @@ mb.on('after-create-window', () => {
   ipc.on('hide-window', () => {
     mb.hideWindow()
   })
+
+  ipc.on('quit', arg => {
+    mb.app.quit()
+  })
 })
 
 function createOrReadJsonFile(path, json) {

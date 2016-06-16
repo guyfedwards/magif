@@ -11,7 +11,6 @@ save gifs in your menu bar, click to copy
 - e.g. `https://media.giphy.com/media/oKn2qp8kKfguk/giphy.gif geese breadcrumbs`<br>
 will add the gif with the tags `geese` and `breadcrumbs`
 
-
 ###installation
 ```
 git clone git@github.com:guyfedwards/magif.git
@@ -27,7 +26,7 @@ npm start
 ###package electron app
 ```
 npm run build
-cp -R magif-darwin-64/magif.app /Applications
+cp -R magif-darwin-x64/magif.app /Applications
 ```
 
 

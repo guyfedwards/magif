@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ./",
-    "build": "rm -rf magif-darwin-x64 && electron-packager . magif --platform=darwin --arch=x64"
+    "build": "rm -rf magif-darwin-x64 && electron-packager . magif --platform=darwin --arch=x64 && cp -r magif-darwin-x64/magif.app /Applications"
   },
   "author": "",
   "license": "ISC",
