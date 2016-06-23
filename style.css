@@ -4,8 +4,7 @@
   box-sizing: border-box;
 }
 
-
-body {
+html {
   font-family: Helvetica, Arial, san-serif;
 
   background-color: #333;
@@ -15,6 +14,7 @@ body {
 .outlet {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 48px;
 }
 
 
@@ -24,26 +24,44 @@ body {
   width: 50%;
   height: 100px;
 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;
 }
 
 
-.gif-item:hover:after {
+.gif-item__gif {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-  content: 'Copy';
-  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.gif-item__delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  display: none;
+}
+
+
+.gif-item:hover .gif-item__delete {
+  display: block;
 }
 
 
 .add-gif {
   display: flex;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  z-index: 100;
 }
 
 

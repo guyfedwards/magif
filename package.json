@@ -1,6 +1,6 @@
 {
   "name": "magif",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ./",
     "build": "rm -rf magif-darwin-x64 && electron-packager . magif --platform=darwin --arch=x64 && cp -r magif-darwin-x64/magif.app /Applications",
-    "publish": "tar -zcvf magif.tar.gz magif-darwin-x64 && publish-release --assets magif.tar.gz"
+    "publish": "tar -zcvf magif.tar.gz magif-darwin-x64/magif.app && publish-release --assets magif.tar.gz"
   },
   "author": "",
   "license": "ISC",

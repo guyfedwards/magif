@@ -6,7 +6,7 @@ const menu = require('./src/menu')
 
 const mb = menubar()
 
-const jsonPath = mb.app.getPath('userData') + '/' + 'gifs.json'
+const jsonPath = `${mb.app.getPath('userData')}/gifs.json`
 
 mb.on('ready', () => {
   const initialArray = []
@@ -21,6 +21,15 @@ mb.on('after-create-window', () => {
 
   ipc.on('add-gif', (event, arg) => {
     addGif(arg)
+  })
+
+  ipc.on('delete', (event, arg) => {
+    getGifs(jsonPath)
+      .then((data) => {
+        setTimeout(() => {
+          deleteGif(data, arg)
+        },10)
+      })
   })
 
   ipc.on('hide-window', () => {
@@ -67,16 +76,21 @@ function addGif(gif) {
     var newGifs = data
 
     newGifs.push({
+      id: randomString(10),
       link: gif.url,
       tags: gif.tags
     })
-    var jsonGifs = JSON.stringify(newGifs)
 
-    fs.writeFile(jsonPath, jsonGifs, err => {
-      if (err) throw err
-    })
-    renderGifs()
+    writeGifsToFile(newGifs)
   })
+}
+
+function deleteGif(gifs, id) {
+  const newGifs = gifs.filter((el, index) => {
+    return el.id !== id;
+  });
+
+  writeGifsToFile(newGifs)
 }
 
 function renderGifs() {
@@ -86,4 +100,22 @@ function renderGifs() {
       mb.window.webContents.send('update-template', result)
     }, 500)
   })
+}
+
+function writeGifsToFile(gifs) {
+  var jsonGifs = JSON.stringify(gifs)
+
+  fs.writeFile(jsonPath, jsonGifs, err => {
+    if (err) throw err
+  })
+  renderGifs()
+}
+
+function randomString(length) {
+  const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let string = ''
+  for (var i = length; i > 0; i -= 1) {
+    string += chars[Math.floor(Math.random() * chars.length)]
+  }
+  return string
 }
