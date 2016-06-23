@@ -1,6 +1,6 @@
 # magif
 
-save gifs in your menu bar, click to copy
+save gifs in your menu bar, click to copy url
 
 <img src="screenshot.png" width="400">
 
@@ -23,10 +23,9 @@ npm install
 npm start
 ```
 
-###package electron app
+###package electron app and copy to /Applications
 ```
 npm run build
-cp -R magif-darwin-x64/magif.app /Applications
 ```
 
 
